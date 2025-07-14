@@ -1,112 +1,120 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Forex Journal</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a0f1c;
-      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d1f;
+      color: #fff;
+      text-align: center;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* 🔥 Animated Candlestick Background */
-    .candles {
+    .candlestick-bg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 0;
-      background: linear-gradient(#0a0f1c, #0a0f1c);
       overflow: hidden;
     }
-    .candle {
+
+    .candlestick {
       position: absolute;
       width: 2px;
-      background: #4caf50;
-      animation: move 4s linear infinite;
+      height: 40px;
+      background: #00ffcc;
+      animation: float 5s linear infinite;
+      opacity: 0.3;
     }
-    @keyframes move {
-      0% { transform: translateY(100vh); opacity: 0; }
-      50% { opacity: 0.7; }
-      100% { transform: translateY(-100vh); opacity: 0; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-100px);
+        opacity: 0.5;
+      }
     }
 
     header {
-      background: #10172a;
+      background-color: #161b22;
       padding: 30px 20px;
-      text-align: center;
-      z-index: 2;
       position: relative;
+      z-index: 2;
     }
+
     header h1 {
       margin: 0;
-      font-size: 2.5em;
-      color: #00ffd5;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #aaa;
+      font-size: 32px;
     }
 
     .features {
-      z-index: 2;
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
-      padding: 40px 20px;
+      gap: 25px;
+      padding: 50px 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .card {
       background: #1b2235;
-      border-radius: 16px;
       padding: 25px;
-      max-width: 90%;
+      border-radius: 16px;
+      width: 85%;
+      max-width: 350px;
       box-shadow: 0 8px 24px rgba(0, 255, 213, 0.1);
-      text-align: center;
       transition: transform 0.3s ease;
     }
+
     .card:hover {
       transform: scale(1.03);
     }
+
     .card h3 {
       color: #4fc3f7;
       margin-bottom: 10px;
     }
+
     .btn {
       margin-top: 15px;
       display: inline-block;
-      background: #00c853;
-      color: #fff;
       padding: 12px 20px;
+      background-color: #00c853;
+      color: white;
+      font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
+
     .btn:hover {
-      background: #00e676;
+      background-color: #00e676;
     }
 
     footer {
-      text-align: center;
       padding: 20px;
       font-size: 14px;
       background: #0e1320;
-      z-index: 2;
-      position: relative;
       color: #888;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <!-- 🔥 Candlestick background container -->
-  <div class="candles" id="candles"></div>
+
+  <!-- 🔥 Animated Candlestick Background -->
+  <div class="candlestick-bg" id="candles"></div>
 
   <header>
     <h1>📊 Smart Forex Journal</h1>
@@ -120,32 +128,33 @@
       <a href="#" class="btn">View Journal</a>
     </div>
     <div class="card">
-      <h3>📊 Backtest Reports</h3>
+      <h3>📉 Backtest Reports</h3>
       <p>See performance of EURUSD, GBPUSD & USDJPY swing strategy.</p>
       <a href="#" class="btn">Explore Results</a>
     </div>
     <div class="card">
       <h3>🤖 AI Feedback</h3>
-      <p>Understand what worked and what didn’t with post-trade analysis.</p>
+      <p>Get post-trade analysis and suggestions for smarter entries.</p>
       <a href="#" class="btn">Learn More</a>
     </div>
   </section>
 
   <footer>
-    Created by Abhishek A • 2025
+    Created by Abhishek A · 2025
   </footer>
 
   <script>
-    const container = document.getElementById('candles');
-    for (let i = 0; i < 60; i++) {
-      const c = document.createElement('div');
-      c.className = 'candle';
-      c.style.left = `${Math.random() * 100}%`;
-      c.style.height = `${10 + Math.random() * 60}px`;
-      c.style.top = `${Math.random() * 100}%`;
-      c.style.animationDuration = `${3 + Math.random() * 4}s`;
-      container.appendChild(c);
+    const container = document.getElementById("candles");
+    for (let i = 0; i < 80; i++) {
+      const candle = document.createElement("div");
+      candle.className = "candlestick";
+      candle.style.left = `${Math.random() * 100}vw`;
+      candle.style.height = `${20 + Math.random() * 60}px`;
+      candle.style.animationDuration = `${3 + Math.random() * 5}s`;
+      candle.style.animationDelay = `${Math.random() * 5}s`;
+      container.appendChild(candle);
     }
   </script>
+
 </body>
 </html>
