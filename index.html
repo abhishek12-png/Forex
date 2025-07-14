@@ -1,63 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Forex Journal</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0f1c;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      position: relative;
     }
+
+    /* 🔥 Animated Candlestick Background */
+    .candles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      background: linear-gradient(#0a0f1c, #0a0f1c);
+      overflow: hidden;
+    }
+    .candle {
+      position: absolute;
+      width: 2px;
+      background: #4caf50;
+      animation: move 4s linear infinite;
+    }
+    @keyframes move {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 0.7; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
     header {
-      background-color: #161b22;
-      padding: 20px;
+      background: #10172a;
+      padding: 30px 20px;
+      text-align: center;
+      z-index: 2;
+      position: relative;
     }
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 2.5em;
+      color: #00ffd5;
     }
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
     .features {
+      z-index: 2;
+      position: relative;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 10px;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 40px 20px;
     }
+
     .card {
-      background-color: #21262d;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 10px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background: #1b2235;
+      border-radius: 16px;
+      padding: 25px;
+      max-width: 90%;
+      box-shadow: 0 8px 24px rgba(0, 255, 213, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
     }
     .card h3 {
-      color: #58a6ff;
+      color: #4fc3f7;
+      margin-bottom: 10px;
     }
     .btn {
-      display: inline-block;
       margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #238636;
-      color: white;
+      display: inline-block;
+      background: #00c853;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
+    .btn:hover {
+      background: #00e676;
+    }
+
     footer {
+      text-align: center;
       padding: 20px;
       font-size: 14px;
-      background-color: #161b22;
+      background: #0e1320;
+      z-index: 2;
+      position: relative;
+      color: #888;
     }
   </style>
 </head>
 <body>
+  <!-- 🔥 Candlestick background container -->
+  <div class="candles" id="candles"></div>
+
   <header>
     <h1>📊 Smart Forex Journal</h1>
-    <p>Track. Reflect. Improve.</p>JN
+    <p>Track. Reflect. Improve.</p>
   </header>
+
   <section class="features">
     <div class="card">
       <h3>📈 Trade Logs</h3>
@@ -75,8 +130,22 @@
       <a href="#" class="btn">Learn More</a>
     </div>
   </section>
+
   <footer>
     Created by Abhishek A • 2025
   </footer>
+
+  <script>
+    const container = document.getElementById('candles');
+    for (let i = 0; i < 60; i++) {
+      const c = document.createElement('div');
+      c.className = 'candle';
+      c.style.left = `${Math.random() * 100}%`;
+      c.style.height = `${10 + Math.random() * 60}px`;
+      c.style.top = `${Math.random() * 100}%`;
+      c.style.animationDuration = `${3 + Math.random() * 4}s`;
+      container.appendChild(c);
+    }
+  </script>
 </body>
 </html>
