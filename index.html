@@ -1,26 +1,82 @@
-ó-- Force rebuild -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Trading Journal</title>
+  <title>Smart Forex Journal</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
       text-align: center;
-      padding: 40px;
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #38bdf8;
+    header {
+      background-color: #161b22;
+      padding: 20px;
     }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 20px auto;
-
-
-    
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 10px;
+    }
+    .card {
+      background-color: #21262d;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      color: #58a6ff;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #238636;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    footer {
+      padding: 20px;
+      font-size: 14px;
+      background-color: #161b22;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📊 Smart Forex Journal</h1>
+    <p>Track. Reflect. Improve.</p>
+  </header>
+  <section class="features">
+    <div class="card">
+      <h3>📈 Trade Logs</h3>
+      <p>Track all trades with R:R, strategy tag, and notes.</p>
+      <a href="#" class="btn">View Journal</a>
+    </div>
+    <div class="card">
+      <h3>📊 Backtest Reports</h3>
+      <p>See performance of EURUSD, GBPUSD & USDJPY swing strategy.</p>
+      <a href="#" class="btn">Explore Results</a>
+    </div>
+    <div class="card">
+      <h3>🤖 AI Feedback</h3>
+      <p>Understand what worked and what didn’t with post-trade analysis.</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+  </section>
+  <footer>
+    Created by Abhishek A • 2025
+  </footer>
+</body>
+</html>
